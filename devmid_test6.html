@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta author="Jonas Gonçalves dos santos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste 6 DedMid</title>
+    <style>
+        .conteudo {
+            width: 50%;
+            margin-left: 25%;
+            margin-top: 2%;
+            border: solid black 1px;
+            text-align: center;
+            padding: 25px;
+        }
+      
+    </style>
+</head>
+
+<body>
+
+    <div class="conteudo">
+        <h1>Vowel Counter</h1>
+        <label>Enter a sentence:</label>
+        <input type="text" id="inputPhrase">
+        <button onclick="contarVogais()">Check</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function contarVogais() {
+            const inputPhrase = document.getElementById('inputPhrase').value.toLowerCase();
+            const vogais = ['a', 'à', 'á', 'â', 'ã', 'e', 'è', 'é', 'ê', 'i', 'í', 'í', 'î', 'o', 'ò', 'ó', 'õ', 'ô', 'u', 'ù', 'ú', 'û', ];
+            let qtdVogais = 0;
+
+            for (let i = 0; i < inputPhrase.length; i++) {
+                if (vogais.includes(inputPhrase[i])) {
+                    qtdVogais++;
+                }
+            }
+
+            document.getElementById('result').innerText = `the phrase has${qtdVogais} vogais.`;
+        }
+    </script>
+</body>
+
+</html>

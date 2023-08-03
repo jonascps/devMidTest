@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta author="Jonas Gonçalves dos santos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste 3 DedMid</title>
+    <style>
+        .conteudo {
+            width: 50%;
+            margin-left: 25%;
+            margin-top: 2%;
+            border: solid black 1px;
+            text-align: center;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="conteudo">
+        <h1>Calculate Factorial</h1>
+        <h3>Enter a non-negative integer:</h3>
+        <input type="number" id="valor">
+        <button onclick="calcularFatorial()">calculate</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function calcularFatorial() {
+            const valor = parseInt(document.getElementById('valor').value);
+            // não permitir calculo para negativo
+            if (isNaN(valor) || valor < 0) {
+                document.getElementById('result').innerText = "Please enter a non-negative integer";
+                return;
+            }
+            // formula para calcular fatorial
+            let factorial = 1;
+            for (let i = 1; i <= valor; i++) {
+                factorial *= i;
+            }
+
+            document.getElementById('result').innerText = `The factorial of ${valor} it is: ${factorial}`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta author="Jonas Gonçalves dos santos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste 5 DedMid</title>
+    <style>
+        .conteudo {
+            width: 50%;
+            margin-left: 25%;
+            margin-top: 2%;
+            border: solid black 1px;
+            text-align: center;
+            padding: 25px;
+        }
+
+        #tabela {
+            margin-left: 25%;
+            width: 50%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="conteudo">
+        <h1>multiplication tables</h1>
+        <label>Enter a number:</label>
+        <input type="number" id="valor">
+        <button onclick="tabuada()">check</button>
+
+        <table id="tabela" border='1'>
+            <tr>
+                <th>value</th>
+                <th>Result</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // Função para gerar a tabela de multiplicação
+        function tabuada() {
+            const valor = parseInt(document.getElementById('valor').value);
+
+            if (isNaN(valor)) {
+                alert("Por favor, digite um número válido.");
+                return;
+            }
+
+            const table = document.getElementById('tabela');
+            table.innerHTML = "<tr><th>Valor</th><th>Resultado</th></tr>";
+
+            for (let i = 1; i <= 10; i++) {
+                const result = valor * i;
+                const row = `<tr><td>${valor} x ${i}</td><td> = ${result}</td></tr>`;
+                table.innerHTML += row;
+            }
+        }
+    </script>
+</body>
+
+</html>

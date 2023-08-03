@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta author="Jonas Gonçalves dos santos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste 1 DedMid</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* ----CSS Calculadora */
+        .calculadora {
+            height: 250px;
+            padding: 25px;
+            width: 30%;
+            border: solid black 1px;
+            margin-top: 5%;
+            margin-left: 35%;
+
+        }
+
+        .painel-saida {
+            height: 30px;
+            width: 100%;
+            border: solid black 1px;
+            margin-bottom: 10px;
+        }
+
+        .painel-entrada {
+            display: flex;
+        }
+
+        .calculadora>h2 {
+            padding-bottom: 5px;
+            flex: 2;
+        }
+
+        .entrada {
+            flex: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 80px;
+            padding-left: 10px;
+        }
+
+        .entrada>input {
+            height: 25px;
+            width: 90%;
+            margin: 5px;
+
+        }
+
+        .btn-operador {
+            height: 25px;
+            width: 30px;
+            border: solid black 1px;
+            text-align: center;
+            padding-top: 5px;
+            margin-top: 3px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn>button {
+            width: 70px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="calculadora">
+            <h2>Simple Calculator </h2>
+
+            <input class="painel-saida" id="resultado" type="text" step="0.01" disabled placeholder="Enter the two numbers and choose the operator..">
+
+            <div class="painel-entrada">
+                <div class="entrada">
+                    <input id="valor1" type="number" step="0.01">
+                    <input id="valor2" type="number" step="0.01">
+                </div>
+                <div class="btn">
+                    <div class="btn-operador" onclick="calcular('+')">
+                        +
+                    </div>
+                    <div class="btn-operador" onclick="calcular('-')">
+                        -
+                    </div>
+                    <div class="btn-operador" onclick="calcular('*')">
+                        *
+                    </div>
+                    <div class="btn-operador" onclick="calcular('/')">
+                        /
+                    </div>
+                    <button type="reset">Clear</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+
+    <script>
+        function calcular(operador) {
+            if (operador === "+") {
+
+                document.getElementById('resultado').value = "Result: " + parseFloat(document.getElementById('valor1').value) + parseFloat(document.getElementById('valor2').value);
+            } else if (operador === "-") {
+
+            } else if (operador === "*") {
+
+            } else if (operador === "/") {
+
+            } else {
+                alert('Operation cannot be completed')
+            }
+        }
+    </script>
+</body>
+
+</html>

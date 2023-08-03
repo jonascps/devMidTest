@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta author="Jonas Gonçalves dos santos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste 8 DedMid</title>
+    <style>
+        .conteudo {
+            width: 50%;
+            margin-left: 25%;
+            margin-top: 2%;
+            border: solid black 1px;
+            text-align: center;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="conteudo">
+        <h1>Interest Calculation</h1>
+        <p>Initial Capital($):
+            <input type="number" id="capital">
+        <p>
+        <p>Interest Rate (% per month):
+            <input type="number" id="taxa">
+        <p>
+        <p>Investment Time (months):
+            <input type="number" id="tempo">
+        <p>
+            <button onclick="calcularJuros()">Calculate</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function calcularJuros() {
+            const capital = parseFloat(document.getElementById('capital').value);
+            const taxa = parseFloat(document.getElementById('taxa').value);
+            const tempo = parseInt(document.getElementById('tempo').value);
+
+            if (isNaN(capital) || isNaN(taxa) || isNaN(tempo)) {
+                document.getElementById('result').innerText = "Please enter valid values";
+                return;
+            }
+
+            const taxaDecimal = taxa / 100;
+            const valorFinal = capital * Math.pow(1 + taxaDecimal, tempo);
+            document.getElementById('result').innerText = `The final investment amount is: $ ${valorFinal.toFixed(2)} cents`; // mostrar somente 2 casas decimais
+        }
+    </script>
+</body>
+
+</html>

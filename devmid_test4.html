@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta author="Jonas Gonçalves dos santos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste 4 DedMid</title>
+    <style>
+        .conteudo {
+            width: 50%;
+            margin-left: 25%;
+            margin-top: 2%;
+            border: solid black 1px;
+            text-align: center;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="conteudo">
+        <h1>Verificar Palíndromo</h1>
+        <h3>Digite uma palavra:</h3>
+        <input type="text" id="palavra">
+        <button onclick="verificarPalindrome()">Check</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        // Função para verificar se uma palavra é um palíndromo
+        function verificarPalindrome() {
+            let palavra = document.getElementById('palavra').value.toLowerCase().replace(/[^a-z]/g, '');
+
+            if (palavra === '') {
+                document.getElementById('result').innerText = "Por favor, digite uma palavra válida.";
+                return;
+            }
+            let reversedWord = palavra.split('').reverse().join('');
+
+            if (palavra === reversedWord) {
+                document.getElementById('result').innerText = `"${palavra}" is palíndromo`;
+            } else {
+                document.getElementById('result').innerText = `"${palavra}" is not palíndromo.`;
+            }
+        }
+    </script>
+</body>
+
+</html>

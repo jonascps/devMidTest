@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta author="Jonas Gonçalves dos santos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste 2 DedMid</title>
+    <style>
+        .conteudo {
+            width: 50%;
+            margin-left: 25%;
+            margin-top: 2%;
+            border: solid black 1px;
+            text-align: center;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="conteudo">
+        <h1>Check Prime Numbers</h1>
+        <h3>Enter an integer greater than or equal to 2:</h3>
+        <input type="number" id="numero">
+        <button onclick="mostrarPrimos()">Check</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function verificaPrimo(n) {
+            if (n <= 1) return false;
+
+            // cria um loop para verificar o numero
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                    return false; // caso encontrar divisor
+                }
+            }
+            return true; // Se não encontrou divisores, é primo
+        }
+
+        // imprimir 10 numeros caso impar comecando pelo numero enviado
+        function mostrarPrimos() {
+            const valor = parseInt(document.getElementById('numero').value);
+
+            if (verificaPrimo(valor)) {
+
+                let contador = 0;
+                let n = valor;
+                let primos = [];
+
+                while (contador < 10) {
+                    if (verificaPrimo(n)) {
+                        primos.push(n);
+                        contador++;
+                    }
+                    n++;
+                }
+
+                document.getElementById('result').innerText = `The first 10 prime numbers starting from ${valor} are: ${primos.join(', ')}`;
+            } else {
+                document.getElementById('result').innerText = "The value is not prime";
+            }
+        }
+    </script>
+</body>
+
+</html>
